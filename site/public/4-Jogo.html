@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="Css/reset.css">
+  <link rel="stylesheet" href="Css/4-Jogo.css">
+
+  <script defer src="js/game.js"></script>
+
+  <title>Jogo Da Memoria</title>
+</head>
+
+<body>
+  <main>
+    <header>
+      <span class="player"></span>
+      <span>Tempo: <span class="timer" id="tempo">00</span> Segundos</span>
+    </header>
+    <div class="grid"></div>
+    <button onclick="gerarjogo()">Acelerar Jogo</button>
+  </main>
+    
+</body>
+</html> 
+<script>
+  function gerarjogo() {
+
+    clearInterval(this.loop);
+    alert(`Parabéns, ${spanPlayer.innerHTML}! Seu tempo foi de: ${(timer.innerHTML / 60)} minutos`);
+    window.location.href = '3-Pagina_Login.html'
+  var tempo = timer.innerHTML
+  fetch("/usuarios/tempo", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        tempoServer: tempo,
+    })
+  })
+  }
+</script>
